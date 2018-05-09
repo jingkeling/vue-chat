@@ -3,6 +3,7 @@
 </template>
 
 <script>
+  // TODO: 怎么保持ws一直连接
   import {mapActions, mapGetters} from 'vuex'
 
 
@@ -22,7 +23,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://localhost:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.1.109:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -36,7 +37,7 @@
       },
       //
       onOpen(e) {
-        alert('connect success!');
+        // alert('connect success!');
       },
 
       //获取服务端的消息(别人发消息来了)

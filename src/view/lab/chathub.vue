@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="sidebar">
-
+    <div class="chat-header">
+      <i class="fa fa-chevron-left" @click="goBack"></i>
     </div>
     <div class="container">
       <!--一行-->
@@ -32,11 +32,21 @@
           </div>
         </div>
       </div>
-
     </div>
-    <div style="position: absolute;top: 85%;left: 20%;">
-      <i-input style="width:488px;" v-model="message" placeholder="请输入..."></i-input>
-      <Button type="primary" @click="mychat">发送</Button>
+
+    <!--发送按钮-->
+    <div class="chat-input" style="width: 100%;">
+      <van-cell-group>
+        <van-field
+          center
+          v-model="message"
+          placeholder="请输入聊天内容"
+          icon="clear"
+          @click-icon="message = ''"
+        >
+          <van-button slot="button" size="small" type="primary" @click="mychat">发送</van-button>
+        </van-field>
+      </van-cell-group>
     </div>
    <!-- <div style="position: absolute;top: 90%;left: 20%;">
       <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
@@ -81,7 +91,7 @@
               avator,
               message
             };
-            let url = "http://localhost:8082/chat/sendMessage";
+            let url = "http://192.168.1.109:8082/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {
@@ -96,10 +106,14 @@
               console.log(data);
             }).catch(function (e) {
               console.log(e);
-            })
+            });
+            this.message = '';
           },
           getUsername(){
             return document.cookie.split(";")[0].split("=")[1];
+          },
+          goBack() {
+            this.$router.go(-1);
           }
         }
 
@@ -107,21 +121,29 @@
 
 </script>
 
-<style>
+<style scoped>
 
   body {
-    background-color: #f2f3ff;
+    background-color: #32373a;
+  }
+
+  .chat-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #32373a;
   }
 
   .container {
-    position: absolute;
-    left: 20%;
-    width: 550px;
-    height: 80%;
-    background-color: #d6d6d6;
-    overflow: auto;/*让它出现滚动条*/
-    border: 2px solid #a6a6a6;
-    border-radius: 10px;
+    position: fixed;
+    width: 100%;
+    height: 85%;
+    top: 60px;
+    background-color: #ebebeb;
+    overflow-y: auto;/*让它出现滚动条*/
+    border-radius: 9px;
 
 
   }
@@ -144,17 +166,6 @@
     border-radius: 6px;
     background-color: rgba(137, 198, 40, 0.9);
   }
-  /*
-          .chatContent-you::after {
-              content: '';
-              left: -100%;
-              position: relative;
-              border-width: 15px; !*尖的尺寸*!
-              border-style: solid;
-              border-color: transparent rgba(137, 198, 40, 0.7) transparent transparent ;!*给颜色谁三角形就在哪边*!
-
-          }*/
-
   .chatContent-me{
 
   }
@@ -187,13 +198,22 @@
 
   }
 
-  /*--------左侧-------*/
-  .sidebar {
-    position: absolute;
-    width: 18%;
-    height: 693px;
-    background: #ffffff;
-    border-radius: 10px;
+  .chat-input{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
   }
+
+  .fa-chevron-left{
+    position: absolute;
+    color: #ffffff;
+    top: 0;
+    bottom: 0;
+    height: 25px;
+    margin: auto 0 auto 20px;
+    font-size: 23px;
+
+  }
+
 </style>
 

@@ -1,33 +1,27 @@
 <template>
   <div :class="bgvalue">
-    <span style="font-size: 50px;color: #232529">prohub</span>
-    <span style="font-family: cursive;font-size: 14px;">为你的所爱而来</span>
-    <span style="font-family: cursive;font-size: 14px;">为你的发现停留</span>
-    <br>
-    <br>
     <div>
       <i-input size="large" style="width: 230px;opacity: 0.5" placeholder="" v-model="name">
         <span slot="prepend"><Icon type="person" style="width: 11px"></Icon></span>
-      </i-input>
-      <br>
-      <i-input size="large" style="width:230px;opacity: 0.5" placeholder="" v-model="password">
-        <span slot="prepend"><Icon type="key" style="width: 11px"></Icon></span>
       </i-input>
       <br>
       <Button type="ghost" @click="login" long>
         <Icon type="arrow-right-a" size="18"></Icon>
       </Button>
     </div>
-    <span class="copyright">
-      2017-2018 &copy; kolin
-    </span>
+    <div class="login-img">
+      <img src="../assets/image/login/lu.jpg" width="100%" height="100%" alt="">
+    </div>
+
   </div>
 </template>
 
 <script>
 
   import {mapActions} from 'vuex';
+  import VanNode from "vant/packages/utils/node";
   export default {
+    components: {VanNode},
     data() {
       return {
         name: 'keling',
@@ -37,8 +31,7 @@
     },
     computed: {
       bgvalue: function () {
-        // return "index bg-image"+Math.floor(Math.random()*5 + 1)
-        return "index bg-image1"
+        return "index"
       }
 
     },
@@ -46,7 +39,7 @@
       login() {
         const formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://localhost:8082/user/login";
+        const url = "http://192.168.1.109:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
@@ -59,6 +52,7 @@
           this.$router.push({name: 'index'});
         }).catch(e => {
           console.log(e);
+          alert("不能登录")
         });
 
       },
@@ -84,27 +78,16 @@
     background-repeat: no-repeat;
 
   }
-  .bg-image1 {
-    background-image: url(../assets/image/login/login1.jpg);
+  .login-img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(3px) brightness(40%);
   }
-  .bg-image2 {
-    background-image: url(../assets/image/login/login2.jpg);
-  }
-  .bg-image3 {
-    background-image: url(../assets/image/login/login3.jpg);
-  }
-  .bg-image4 {
-    background-image: url(../assets/image/login/login4.jpg);
-  }
-  .bg-image5 {
-    background-image: url(../assets/image/login/login5.jpg);
-  }
-  .bg-image6 {
-    background-image: url(../assets/image/login/login6.jpg);
-  }
-  .copyright {
-    position: absolute;
-    bottom: 0px;
-  }
+
+
 
 </style>

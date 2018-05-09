@@ -6,11 +6,14 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import ws from './components/ws/index';
-import axios from 'axios';
 import store from './store';
 
-axios.defaults.withCredentials = true;
-Vue.prototype.$axios = axios;
+import vant from 'vant';
+import 'vant/lib/vant-css/index.css';
+import 'font-awesome/css/font-awesome.css'
+
+Vue.use(vant);
+
 Vue.use(ws);
 Vue.use(iView);
 
