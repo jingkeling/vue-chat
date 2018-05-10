@@ -58,6 +58,26 @@ export default new vuex.Store({
         }
       }
 
+    },
+    modWebsocket:{
+      state:{
+        isConnect: false
+      },
+      mutations: {
+        _connectWS(state, {isConnect}){
+          state.isConnect = isConnect;
+        }
+      },
+      actions: {
+        connectWS(context, {isConnect}) {
+          context.commit('_connectWS', {isConnect});
+        }
+      },
+      getters: {
+        showIsConnect(state) {
+          return state.isConnect;
+        }
+      }
     }
   }
 

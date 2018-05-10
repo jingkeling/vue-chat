@@ -82,12 +82,17 @@
           youchat() {
             this.objs.push({message:"模拟别人发送的",username:"msg",avator: 'msg'});
           },
+          /**
+           * 利用http发送聊天消息
+           * @param myInfo
+           */
           sendMyChat(myInfo) {
             let $this = this;
             let username = myInfo.username;
-            if (username ==null || username ==="") {
+            // HERE: 没必要登录信息，前端刷新就没有，由后端管理
+            /*if (username ==null || username ==="") {
               $this.$router.push({name: "login"})
-            }
+            }*/
             let avator = myInfo.avator;
             let message = this.message;
             let chatInfo = {
@@ -95,7 +100,7 @@
               avator,
               message
             };
-            let url = "http://192.168.19.250:8082/chat/sendMessage";
+            const url = "http://192.168.1.109:8082/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {
@@ -110,14 +115,21 @@
               console.log(data);
 
             }).catch(function (e) {
-              $this.$router.push({name:"login"})
+              alert("sendMessage请求catch到了异常: 断网");
+              $this.$router.push({name: "login"});
               console.log(e);
             });
             this.message = '';
           },
+          /**
+           * 从cookie获取登录信息
+           */
           getUsername(){
             return document.cookie.split(";")[0].split("=")[1];
           },
+          /**
+           * 路由退回
+           */
           goBack() {
             this.$router.go(-1);
           }

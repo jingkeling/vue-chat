@@ -5,7 +5,7 @@
 <script>
   // TODO: 怎么保持ws一直连接
   import {mapActions, mapGetters} from 'vuex'
-
+  import reconnectingwebsocket from 'reconnectingwebsocket';
 
   export default {
     data() {
@@ -16,6 +16,7 @@
     created() {
       this.doRun()
     },
+
     methods: {
       /**
        * 以下是websocket方法
@@ -23,7 +24,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.19.250:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.1.109:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -43,23 +44,22 @@
       //获取服务端的消息(别人发消息来了)
       onMessage(e) {
         let chatInfo = JSON.parse(e.data);
-        this.getMessage({chatInfo})
+        this.getMessage({chatInfo}) // MARK: 为什么要剥一层{},不直接传参数对象?因为它实际上是{chatInfo: chatInfo}
       },
 
+      //断线重连
       onError(e) {
-        this.$router.push({name: 'login'})
+        this.myAlert();
       },
-
       onClose(e) {
-        // alert("connect closed:" + e.code);
-        this.$router.push({name: 'login'})
+        this.myAlert();
 
       },
       //点击发送
       doSend() {
-        if (ws.readyState == ws.OPEN) {
-          var msg = document.getElementById("inputMsg").value;
-          ws.send(msg);//调用后台handleTextMessage方法
+        if (this.ws.readyState == this.ws.OPEN) {
+          let msg = "11";
+          this.ws.send(msg);//调用后台handleTextMessage方法
           alert("发送成功!");
         } else {
           alert("连接失败!");
@@ -70,11 +70,20 @@
         this.ws.close();
       },
       /**
-       * 操作vuex中的方法
+       * 把服务端的消息存进vuex
        */
       ...mapActions([
         'getMessage'
-      ])
+      ]),
+      myAlert(){
+        Toast.loading({
+          mask: true,
+          message: '加载中...'
+        });
+      },
+    },
+    watch: {
+
     },
     computed: {
 
@@ -87,8 +96,6 @@
     }
   }
 </script>
-
-
 
 
 <style scoped>

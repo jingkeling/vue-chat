@@ -26,7 +26,7 @@
       <van-tabbar-item icon="gold-coin" dot>我的</van-tabbar-item>
     </van-tabbar>
 
-    <ws></ws>
+    <!--<ws></ws>-->
     <!--<router-view></router-view>-->
   </div>
 
