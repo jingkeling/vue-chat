@@ -1,93 +1,118 @@
 <template>
   <div class="layout">
-      <div class="header"></div>
-      <div class="menu">
-        <div class="item" @click="demo('')">推荐</div>
-        <div class="item" @click="demo('chathub')">聊天</div>
-        <div class="item" @click="demo('video')">视频</div>
+      <div class="header">
+        Tencent
       </div>
-      <div class="content">
-        <router-view></router-view>
+
+      <div class="index">
+        <div v-for="obj in indexData">
+          <div class="index-row" @click="changePage(obj.page)" >
+            <div class="row-backgroud">
+              <img :src="obj.rowBgImage" width="100%" height="100%">
+            </div>
+            <div class="index-demo">
+              <div class="row-name">{{obj.rowName}}</div>
+              <div class="row-tips">{{obj.rowTips}}</div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    <div class="test1"></div>
+    <!--底部导航-->
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="shop">标签</van-tabbar-item>
+      <van-tabbar-item icon="chat" dot>标签</van-tabbar-item>
+      <van-tabbar-item icon="records" info="5">标签</van-tabbar-item>
+      <van-tabbar-item icon="gold-coin" info="20">标签</van-tabbar-item>
+    </van-tabbar>
+
     <ws></ws>
-      <footer class="layout-copy">
-        2017-2018 &copy; kolin
-      </footer>
+    <!--<router-view></router-view>-->
   </div>
 
 </template>
 <script>
-  import notice from '../components/notice';
-  import badge from '../components/badge';
-  import Footer from "iview/src/components/layout/footer";
+
+  import { Dialog} from 'vant';
 
   export default {
     data() {
       return {
-        isCollapsed: false
-      }
+        isCollapsed: false,
+        active: 0,
+        indexData: [
+          {rowName: "机器人",rowTips: "尽情调戏机器人吧",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"},
+          {rowName: "群聊",rowTips: "请文明发言",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"}
+        ]
+
+      };
     },
     computed: {
-      rotateIcon() {
-        return [
-          'menu-icon',
-          this.isCollapsed ? 'rotate-icon' : ''
-        ];
-      },
-      menuitemClasses() {
-        return [
-          'menu-item',
-          this.isCollapsed ? 'collapsed-menu' : ''
-        ]
-      }
+
     },
     methods: {
-      demo(pageName){
+      //翻页
+      changePage(pageName){
         this.$router.push({name: pageName})
       }
-    },
-    components: {
-      Footer,
-      notice,
-      badge
     }
+
   }
 </script>
 
 <style>
   .header {
-
-  }
-  .menu {
-    height: 100%;
-    height: 40px;
+    width: 100%;
+    height: 60px;
     text-align: center;
-    line-height: 40px;
-    border-bottom: 1px solid #b2b2b2;
-    display: flex;
-    justify-content: space-between;
-
+    line-height: 60px;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: bolder;
+    background-color: rgba(50, 55, 58, 1);
+    filter: blur(1px);
   }
-  .item {
-    flex: 1;
-  }
-  .content {
+  .index {
     width: 100%;
     height: 800px;
     border-bottom: 1px solid #b2b2b2;
+    text-align: center;
+    line-height: 40px;
   }
-  .layout {
-    border: 1px solid #d7dde4;
-    background: #f5f7f9;
+  .index-row{
     position: relative;
-    border-radius: 4px;
-    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #d6d6d6;
+
+  }
+  .index-demo{
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+  }
+  .row-name{
+    width: 100%;
+    height: 50%;
+    font-size: 20px;
+    text-align: left;
+
+  }
+  .row-tips{
+    width: 100%;
+    height: 50%;
+    text-align: left;
+
+  }
+  .row-backgroud{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
   }
 
-  .layout-copy {
-    text-align: center;
-    padding: 10px 0 20px;
-    color: #9ea7b4;
-  }
+
 </style>

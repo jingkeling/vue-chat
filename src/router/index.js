@@ -24,11 +24,14 @@ export default new Router({
       component: index,
       children:[
         {path: 'echart', component: echart,name: 'echart1'},
-        {path: 'chathub', component: chathub,name: 'chathub'},
         {path: 'video', component: video,name: 'video'},
       ]
     },
-
+    {
+      path: '/chathub',
+      component: chathub,
+      name: 'chathub'
+    },
     //欢迎页
     {
       path: '/login',

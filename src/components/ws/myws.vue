@@ -3,6 +3,7 @@
 </template>
 
 <script>
+  // TODO: 怎么保持ws一直连接
   import {mapActions, mapGetters} from 'vuex'
 
 
@@ -36,7 +37,7 @@
       },
       //
       onOpen(e) {
-        alert('connect success!');
+        // alert('connect success!');
       },
 
       //获取服务端的消息(别人发消息来了)
