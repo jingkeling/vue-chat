@@ -47,11 +47,13 @@
       },
 
       onError(e) {
-        alert("error " + e);
+        this.$router.push({name: 'login'})
       },
 
       onClose(e) {
-        alert("connect closed:" + e.code);
+        // alert("connect closed:" + e.code);
+        this.$router.push({name: 'login'})
+
       },
       //点击发送
       doSend() {

@@ -11,7 +11,7 @@
         </div>
         <div class="arrow"></div>
         <div>
-          <div class="chatName">柯铃</div>
+          <div class="chatName">kolin</div>
           <div class="chatContent">
             大家玩得开心
           </div>
@@ -83,7 +83,11 @@
             this.objs.push({message:"模拟别人发送的",username:"msg",avator: 'msg'});
           },
           sendMyChat(myInfo) {
+            let $this = this;
             let username = myInfo.username;
+            if (username ==null || username ==="") {
+              $this.$router.push({name: "login"})
+            }
             let avator = myInfo.avator;
             let message = this.message;
             let chatInfo = {
@@ -104,7 +108,9 @@
               return res.text();
             }).then(function (data) {
               console.log(data);
+
             }).catch(function (e) {
+              $this.$router.push({name:"login"})
               console.log(e);
             });
             this.message = '';

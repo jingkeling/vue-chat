@@ -20,10 +20,10 @@
       </div>
     <!--底部导航-->
     <van-tabbar v-model="active">
-      <van-tabbar-item icon="shop">标签</van-tabbar-item>
-      <van-tabbar-item icon="chat" dot>标签</van-tabbar-item>
-      <van-tabbar-item icon="records" info="5">标签</van-tabbar-item>
-      <van-tabbar-item icon="gold-coin" info="20">标签</van-tabbar-item>
+      <van-tabbar-item icon="shop">推荐</van-tabbar-item>
+      <van-tabbar-item icon="chat" dot>消息</van-tabbar-item>
+      <van-tabbar-item icon="records" info="5">实验室</van-tabbar-item>
+      <van-tabbar-item icon="gold-coin" dot>我的</van-tabbar-item>
     </van-tabbar>
 
     <ws></ws>
@@ -41,8 +41,9 @@
         isCollapsed: false,
         active: 0,
         indexData: [
-          {rowName: "机器人",rowTips: "尽情调戏机器人吧",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"},
-          {rowName: "群聊",rowTips: "请文明发言",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"}
+          {rowName: "群聊",rowTips: "畅所欲言吧",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"},
+          {rowName: "机器人",rowTips: "自动重连待完善，刷新页面需重新登录",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"}/*,
+          {rowName: "",rowTips: "待做",rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg",page:"chathub"}*/
         ]
 
       };

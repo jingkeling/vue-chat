@@ -24,7 +24,7 @@
     components: {VanNode},
     data() {
       return {
-        name: 'keling',
+        name: '',
         password: "",
 
       }
@@ -37,6 +37,9 @@
     },
     methods: {
       login() {
+        if (this.name == null || this.name === "") {
+             return;
+        }
         const formData = new FormData();
         formData.append("username", this.name);
         const url = "http://192.168.19.250:8082/user/login";
