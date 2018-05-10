@@ -81,7 +81,7 @@
               avator,
               message
             };
-            let url = "http://localhost:8082/chat/sendMessage";
+            let url = "http://192.168.19.250:8082/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {

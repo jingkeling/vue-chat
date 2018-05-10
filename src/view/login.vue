@@ -46,7 +46,7 @@
       login() {
         const formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://localhost:8082/user/login";
+        const url = "http://192.168.19.250:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
