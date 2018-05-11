@@ -100,11 +100,11 @@
 
   .pointapp{
     position: fixed;
-    bottom: 50px;
-    right: 20px;
+    bottom: 60px;
+    right: 0;
     width: 20px;
     height: 20px;
-    background: #000;
+    background: rgba(0, 0, 0, 0.53);
     border-radius: 20px;
     z-index: 5;
   }

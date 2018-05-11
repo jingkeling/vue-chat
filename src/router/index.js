@@ -55,7 +55,8 @@ const router = new Router({
     //测试页面
     {
       path: '/test',
-      component: test
+      component: test,
+      name: 'test'
     }
   ]
 });

@@ -12,7 +12,7 @@
 
     <!--底部导航-->
     <van-tabbar v-model="active">
-      <van-tabbar-item icon="shop" @click="changePage('home')">推荐</van-tabbar-item>
+      <van-tabbar-item icon="shop" @click="changePage('test')">推荐</van-tabbar-item>
       <van-tabbar-item icon="chat" @click="changePage('message')">消息</van-tabbar-item>
       <van-tabbar-item icon="records" @click="changePage('discovery')" info="5">实验室</van-tabbar-item>
       <van-tabbar-item icon="gold-coin" @click="changePage('mine')" dot>我的</van-tabbar-item>
@@ -20,7 +20,6 @@
 
     <ws></ws>
 
-    <!--<router-view></router-view>-->
   </div>
 
 </template>
