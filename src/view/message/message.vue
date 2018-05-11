@@ -2,7 +2,7 @@
   <div>
     <div class="index">
       <div v-for="obj in indexData">
-        <div class="index-row" @click="changePage(obj.page)" >
+        <div class="index-row van-hairline--bottom" @click="changePage(obj.page)" >
           <div class="row-backgroud">
             <img :src="obj.rowBgImage" width="100%" height="100%">
           </div>
@@ -50,7 +50,6 @@
     display: inline-block;
     width: 100%;
     height: 70px;
-    border-bottom: 1px solid #d6d6d6;
 
   }
   .index-demo{
