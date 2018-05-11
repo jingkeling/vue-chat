@@ -35,6 +35,10 @@
       }
 
     },
+    mounted(){
+      //判断是不是有cookie登录信息
+      this.autoLogin();
+    },
     methods: {
       login() {
         let $this = this;
@@ -52,7 +56,12 @@
         fetch(request).then(response => {
           return response.json();
         }).then(data => {
+
+          //登录成功储存登录信息并跳转
+          $this.setCookie("username", this.name);
+          $this.setCookie("avator", data.avator);
           $this.setMyInfo({userInfo: data});
+
           $this.$router.push({name: 'index'});
         }).catch(e => {
           console.log(e);
@@ -63,14 +72,31 @@
       ...mapActions([
         'setMyInfo', 'connectWS'
       ]),
-      setCookie(key){
-        document.cookie = "username=" + value;
+      setCookie(key, value){
+        document.cookie = key + "=" + value;
       },
       getCookie(key){
-        let cookie = document.cookie.split(";");
+        const cookie = document.cookie;
+        if (cookie === "" || cookie === undefined || cookie == null) { return null; }
+        const arr = cookie.split("; ");
+        let result = null;
+        arr.forEach(value => {
+          const split = value.split("=");
+          if (split[0] === key && split[1] !== "") { result = split[1]; }
+        });
+        return result;
       },
       deleteCookie(key){
         document.cookie = key+"=; s"
+      },
+      // TODO: 最好改成用导航守卫做的
+      autoLogin(){
+        const username = this.getCookie('username');
+        const avator = this.getCookie('avator');
+        if (username == null || avator == null) { return;}
+        this.setMyInfo({userInfo: {username, avator}});
+        this.$router.push({name: 'index'});
+
       }
 
     }
