@@ -67,7 +67,7 @@
         document.cookie = "username=" + value;
       },
       getCookie(key){
-        var cookie = document.cookie.split(";");
+        let cookie = document.cookie.split(";");
       },
       deleteCookie(key){
         document.cookie = key+"=; s"
@@ -85,7 +85,7 @@
     justify-content: center;
     align-items: center;
 
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background-size: cover;
