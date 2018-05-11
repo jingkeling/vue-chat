@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import index from '../view/index';
 import login from '../view/login';
-import test from '../view/test/test';
-import echart from '../view/myfree/echart';
+
+import index from '../view/index';
+import home from '../view/home/home';
+import message from '../view/message/message';
+import discovery from '../view/discovery/discovery';
 import chathub from '../view/lab/chathub';
+
 import video from '../view/video/video';
+import mine from '../view/mine/mine';
+import test from '../view/test/test';
+
 import {Toast} from 'vant';
 
 import store from '../store';
@@ -28,8 +34,11 @@ const router = new Router({
       name: 'index',
       component: index,
       children: [
-        {path: 'echart', component: echart, name: 'echart1'},
         {path: 'video', component: video, name: 'video'},
+        {path: 'home', component: home, name: 'home'},
+        {path: 'message', component: message, name: 'message'},
+        {path: 'discovery', component: discovery, name: 'discovery'},
+        {path: 'mine', component: mine, name: 'mine'},
       ]
     },
     {

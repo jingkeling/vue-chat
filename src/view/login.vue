@@ -43,7 +43,7 @@
         }
         const formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://192.168.19.250:8082/user/login";
+        const url = "http://192.168.1.109:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
@@ -63,8 +63,14 @@
       ...mapActions([
         'setMyInfo', 'connectWS'
       ]),
-      setCookie(username, value){
-        document.cookie = username + "=" + value;
+      setCookie(key){
+        document.cookie = "username=" + value;
+      },
+      getCookie(key){
+        var cookie = document.cookie.split(";");
+      },
+      deleteCookie(key){
+        document.cookie = key+"=; s"
       }
 
     }

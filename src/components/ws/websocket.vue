@@ -35,7 +35,7 @@
         },
         initWebSocket(){ //初始化weosocket
           //ws地址
-          const wsuri = "ws://192.168.19.250:8080/lab1/websocket/socketServer";
+          const wsuri = "ws://192.168.1.109:8080/lab1/websocket/socketServer";
           this.websock = new WebSocket(wsuri);
           this.websock.onmessage = this.websocketonmessage;
           this.websock.onclose = this.websocketclose;
