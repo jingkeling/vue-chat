@@ -62,7 +62,11 @@
       },
       ...mapActions([
         'setMyInfo', 'connectWS'
-      ])
+      ]),
+      setCookie(username, value){
+        document.cookie = username + "=" + value;
+      }
+
     }
   }
 </script>
