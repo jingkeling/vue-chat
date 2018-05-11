@@ -5,7 +5,6 @@
 <script>
   // TODO: 怎么保持ws一直连接
   import {mapActions, mapGetters} from 'vuex'
-  import reconnectingwebsocket from 'reconnectingwebsocket';
 
   export default {
     data() {
@@ -14,6 +13,9 @@
       }
     },
     created() {
+      //判断是不是连接了，没连接再连接
+
+
       this.doRun()
     },
 
@@ -24,7 +26,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.1.109:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.19.250:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -49,10 +51,8 @@
 
       //断线重连
       onError(e) {
-        this.myAlert();
       },
       onClose(e) {
-        this.myAlert();
 
       },
       //点击发送
@@ -83,7 +83,12 @@
       },
     },
     watch: {
-
+      //方法二、子组件通过vuex+watch触发父组件方法
+      showIsConnect(newValue, oldValue){
+        if (newValue != oldValue && newValue) {
+          // this.doRun();
+        }
+      }
     },
     computed: {
 
@@ -91,7 +96,7 @@
        * 从vuex中取出状态
        */
       ...mapGetters([
-        'showChat','showMyInfo'
+        'showChat','showMyInfo','showIsConnect'
       ])
     }
   }

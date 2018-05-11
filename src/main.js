@@ -13,10 +13,11 @@ import 'vant/lib/vant-css/index.css';
 import 'font-awesome/css/font-awesome.css'
 
 Vue.use(vant);
-
 Vue.use(ws);
 Vue.use(iView);
+Vue.prototype.doConnect = function () {
 
+}
 
 new Vue({
   el: '#app',

@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="slide-left">
+      <router-view/>
+    </transition>
     <div class="pointapp"></div>
     <!--<div @parentconnect="wsconnecta"></div>-->
+    <!--<ws></ws>-->
   </div>
 
 </template>
@@ -14,7 +17,6 @@
   export default {
     data() {
       return {
-        ws: null
       }
     },
     computed: {
@@ -26,22 +28,15 @@
         'showChat', 'showMyInfo','showIsConnect'
       ])
     },
-    watch: {
-      //方法二、子组件通过vuex+watch触发父组件方法
-     /* showIsConnect(newValue, oldValue){
-        if (newValue != oldValue && newValue) {
-          this.wsconnecta();
-        }
-      }*/
-    },
-    methods: {
-      /**
+
+/*    methods: {
+      /!**
        * 以下是websocket方法
-       */
+       *!/
       wsconnecta() {
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.1.109:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.19.250:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -84,19 +79,14 @@
       doClose() {
         this.ws.close();
       },
-      /**
+      /!**
        * 把服务端的消息存进vuex
-       */
+       *!/
       ...mapActions([
         'getMessage'
       ]),
-      myAlert() {
-        Toast.loading({
-          mask: true,
-          message: '加载中...'
-        });
-      },
-    },
+
+    },*/
 
 
 

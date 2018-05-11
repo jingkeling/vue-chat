@@ -52,6 +52,7 @@
       <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
       <Button type="primary" @click="youchat">模拟别人发送</Button>
     </div>-->
+    <!--<ws></ws>-->
   </div>
 </template>
 
@@ -100,7 +101,7 @@
               avator,
               message
             };
-            const url = "http://192.168.1.109:8082/chat/sendMessage";
+            const url = "http://192.168.19.250:8082/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {

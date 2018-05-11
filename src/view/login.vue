@@ -43,7 +43,7 @@
         }
         const formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://192.168.1.109:8082/user/login";
+        const url = "http://192.168.19.250:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
@@ -53,10 +53,6 @@
           return response.json();
         }).then(data => {
           $this.setMyInfo({userInfo: data});
-          // $this.connectWS({isConnect: true});
-          // $this.$emit("parentconnect")
-          //方法一、直接触发父组件方法
-          $this.$parent.wsconnecta();
           $this.$router.push({name: 'index'});
         }).catch(e => {
           console.log(e);
