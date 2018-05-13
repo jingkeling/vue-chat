@@ -1,7 +1,6 @@
 <template>
   <div class="layout">
 
-
     <!--TODO: 调整下各个模块高度-->
     <div>
     <router-view/>
@@ -11,7 +10,7 @@
     <van-tabbar v-model="active">
       <van-tabbar-item icon="shop" @click="changePage('home')">主页</van-tabbar-item>
       <van-tabbar-item icon="chat" @click="changePage('message')">消息</van-tabbar-item>
-      <van-tabbar-item icon="records" @click="changePage('discovery')" info="5">实验室</van-tabbar-item>
+      <van-tabbar-item icon="records" @click="changePage('test')" info="5">实验室</van-tabbar-item>
       <van-tabbar-item icon="gold-coin" @click="changePage('mine')" dot>我的</van-tabbar-item>
     </van-tabbar>
 
@@ -29,6 +28,9 @@
 
 
       };
+    },
+    mounted(){
+      this.changePage('home')
     },
     computed: {
 

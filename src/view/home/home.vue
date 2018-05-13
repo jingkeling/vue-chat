@@ -35,9 +35,8 @@
           money: 100,
           zan: 100
         },
-        active: 2,
-        tabsArr:[{id:'1', title:"直播"},{id:'2', title: "推荐"}, {id:'3', title: "游戏"}]
-
+        active: 1,
+        tabsArr:[{id:'1', title:"直播"},{id:'2', title: "推荐"}, {id:'3', title: "追番"}]
       }
     },
 

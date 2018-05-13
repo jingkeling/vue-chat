@@ -152,7 +152,7 @@
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: #32373a;
+    background-color: #fa7198;
   }
 
   .container {

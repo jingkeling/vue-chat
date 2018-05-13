@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
 });
 router.afterEach((to, from) => {
   // Toast('切换页面了'+ Math.random().toFixed(2));
-  Toast(store.getters.showMyInfo.username);
+  // Toast(store.getters.showMyInfo.username);
 
 });
 export default router;

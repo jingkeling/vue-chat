@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="index">
+    <message-header></message-header>
+    <div class="message-index">
       <div v-for="obj in indexData">
         <div class="index-row van-hairline--bottom" @click="changePage(obj.page)" >
           <div class="row-backgroud">
             <img :src="obj.rowBgImage" width="100%" height="100%">
           </div>
-          <div class="index-demo">
+          <div class="message-index-demo">
             <div class="row-name">{{obj.rowName}}</div>
             <div class="row-tips">{{obj.rowTips}}</div>
           </div>
@@ -18,8 +19,13 @@
 </template>
 
 <script>
+  import header from './messageheader';
+
   export default {
     name: "home",
+    components:{
+      'message-header': header
+    },
     data() {
       return {
         indexData: [
@@ -38,7 +44,10 @@
 
 <style scoped>
 
-  .index {
+  .message-index {
+    position: fixed;
+    top: 50px;
+    left: 0;
     width: 100%;
     height: 800px;
     border-bottom: 1px solid #b2b2b2;
@@ -52,7 +61,7 @@
     height: 70px;
 
   }
-  .index-demo{
+  .message-index-demo{
     display: inline-block;
     width: 60%;
     height: 100%;
