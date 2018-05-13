@@ -4,14 +4,7 @@
     <van-tabs class="home-tabs" v-model="active" swipeable sticky>
       <van-tab v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
         内容 {{ obj.title }}
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <!--// TODO: 这里用子路由做，推荐那个用图片轮播-->
       </van-tab>
     </van-tabs>
   </div>
