@@ -6,6 +6,7 @@
         忘记密码
       </div>
     </div>
+    <!--用户名栏-->
     <div class="login-img">
       <img :src="'/static/img/login/login_'+bgimgurl+'.jpg'" width="100%" height="100%">
     </div>
@@ -25,13 +26,14 @@
         >
         </van-field>
       </div>
-
+      <!--密码栏-->
       <div class="login-row van-hairline--bottom">
-        <div class="login-user-ico">
-          <van-icon name="password-not-view" />
+        <!--密码栏图标-->
+        <div class="login-user-ico" @click="showPassword">
+          <van-icon :name="passwordIcoName" />
         </div>
         <van-field
-          type="password"
+          :type="passwordType"
           @click="changeImage('password')"
           class="login-user-input"
           center
@@ -62,7 +64,10 @@
       return {
         name: '',
         password: "",
-        bgimgurl: "user"
+        bgimgurl: "user",
+        passwordType: "password",
+        passwordIcoName: "password-not-view"
+
 
       }
     },
@@ -134,6 +139,17 @@
         if (username == null || avator == null) { return;}
         this.setMyInfo({userInfo: {username, avator}});
         this.$router.push({name: 'index'});
+
+      },
+      showPassword(){
+        //显示隐藏密码、更替密码栏图标
+        if (this.passwordType === "password") {
+          this.passwordType = "text";
+          this.passwordIcoName = "password-view"
+        } else {
+          this.passwordType = "password";
+          this.passwordIcoName = "password-not-view";
+        }
 
       }
 
