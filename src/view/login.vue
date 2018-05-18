@@ -1,16 +1,52 @@
 <template>
-  <div :class="bgvalue">
-    <div>
-      <i-input size="large" style="width: 230px;opacity: 0.5" placeholder="" v-model="name">
-        <span slot="prepend"><Icon type="person" style="width: 11px"></Icon></span>
-      </i-input>
-      <br>
-      <Button type="ghost" @click="login" long>
-        <Icon type="arrow-right-a" size="18"></Icon>
-      </Button>
+  <div class="index">
+    <div class="login-header">
+      登录
+      <div class="login-forget">
+        忘记密码
+      </div>
     </div>
     <div class="login-img">
-      <img src="../assets/image/login/lu.jpg" width="100%" height="100%" alt="">
+      <img :src="'/static/img/login/login_'+bgimgurl+'.jpg'" width="100%" height="100%">
+    </div>
+    <div class="login-wrapper">
+      <div class="login-row van-hairline--bottom">
+        <div class="login-user-ico">
+          <i class="fa fa-user-o"></i>
+        </div>
+        <van-field
+          @click="changeImage('user')"
+          class="login-user-input"
+          center
+          v-model="name"
+          placeholder="请输入用户名"
+          icon="clear"
+          @click-icon="name = ''"
+        >
+        </van-field>
+      </div>
+
+      <div class="login-row van-hairline--bottom">
+        <div class="login-user-ico">
+          <van-icon name="password-not-view" />
+        </div>
+        <van-field
+          type="password"
+          @click="changeImage('password')"
+          class="login-user-input"
+          center
+          v-model="password"
+          placeholder="请输入密码"
+          icon="clear"
+          @click-icon="password = ''"
+        >
+        </van-field>
+      </div>
+      <div class="login-buttom">
+        <div class="login-register">注册</div>
+        <div class="login-loginin" @click="login">登录</div>
+      </div>
+
     </div>
 
   </div>
@@ -26,13 +62,12 @@
       return {
         name: '',
         password: "",
+        bgimgurl: "user"
 
       }
     },
     computed: {
-      bgvalue: function () {
-        return "index"
-      }
+
 
     },
     mounted(){
@@ -40,6 +75,9 @@
       this.autoLogin();
     },
     methods: {
+      changeImage(msg){
+        this.bgimgurl = msg;
+      },
       login() {
         let $this = this;
         if (this.name == null || this.name === "") {
@@ -47,7 +85,7 @@
         }
         const formData = new FormData();
         formData.append("username", this.name);
-        const url = "http://192.168.1.109:8082/user/login";
+        const url = "http://192.168.19.250:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
@@ -116,17 +154,117 @@
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #f7f7f7;
+
+  }
+  .login-header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgb(250, 113, 152);
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  .login-forget{
+    position: absolute;
+    height: 100%;
+    width: 90px;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+    font-weight: normal;
 
   }
   .login-img{
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 50px;
+    height: 95px;
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(3px) brightness(40%);
   }
+  .login-wrapper{
+    position: fixed;
+    top: 145px;
+    width: 100%;
+    height: 94px;
+  }
+  .login-row{
+    position: relative;
+    width: 100%;
+  }
+
+  .login-user-input{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 85%;
+
+  }
+
+
+  .login-user-ico{
+    display: inline-block;
+    width: 15%;
+    left: 0;
+    line-height: 44px;
+    text-align: center;
+    background-color: #ffffff;
+
+  }
+
+  .login-buttom{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+
+  }
+  .login-buttom > div{
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    user-select: none;
+  }
+
+  .login-register{
+    background-color: #ffffff;
+    margin-right: 10px;
+  }
+  .login-loginin{
+    color: #ffffff;
+    background-color: #f2a4ba;
+    margin-left: 10px;
+
+  }
+
+  /*TODO: 触摸事件  */
+/*
+  .login-loginin:hover{
+    border-radius:5px;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: orangePulse;
+  }
+
+  @keyframes orangePulse {
+    from { background-color: #a14200; box-shadow: 0 0 9px #000; }
+    50% { background-color: #ff5c00; box-shadow: 0 0 18px #ff5c00; }
+    to { background-color: #7b3d00; box-shadow: 0 0 9px #000; }
+  }
+*/
+
+
+
+
 
 
 

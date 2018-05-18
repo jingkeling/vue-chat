@@ -14,7 +14,6 @@
       <van-tabbar-item icon="gold-coin" @click="changePage('mine')" dot>我的</van-tabbar-item>
     </van-tabbar>
 
-    <!--<ws></ws>-->
 
   </div>
 

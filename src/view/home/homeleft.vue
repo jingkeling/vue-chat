@@ -1,5 +1,6 @@
 <template>
     <div class="home-left-contain van-hairline--right">
+      <!--左侧栏头部-->
       <div class="home-left-wrapper">
         <!--头像-->
         <div class="home-left-avator">
@@ -13,8 +14,13 @@
             <span class="home-left-zan">赞: {{homeInfo.zan}}</span>
           </div>
         </div>
+        <!--退出登录-->
+        <div class="header-signout" @click="signout">
+          <i class="fa fa-sign-out"></i>
+        </div>
 
       </div>
+      <!--左侧栏下面-->
       <div class="home-left-content">
         <van-panel class="van-panel" v-for="obj in panels" :title="obj.title" :desc="obj.desc" :status="obj.status" :key="obj.title">
         </van-panel>
@@ -40,9 +46,21 @@
         }
       },
       methods:{
+        /*左侧栏*/
         pickup(){
           this.$parent.showLeftDetail(false);
+        },
+        /*登出*/
+        signout() {
+          this.deleteCookie("username");
+          this.$router.push({name:'login'})
+        },
+        deleteCookie(key){
+            let date = new Date();
+            let utcTime = date.toUTCString();
+            document.cookie = key+"=; expires=" + utcTime;
         }
+
       }
     }
 </script>
@@ -88,6 +106,17 @@
   }
   van-panel{
     border: 0;
+  }
+  /*登出*/
+  .header-signout{
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
   }
 
 </style>

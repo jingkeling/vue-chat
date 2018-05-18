@@ -21,7 +21,7 @@
       <div v-for="(obj,key) in showChat" :class="['chatRow',obj.username === showMyInfo.username?'chatRow-me':null]">
         <!--用户头像-->
         <div>
-          <img class="user_image" :src="obj.avator" width="50" style="border-radius: 50%" alt="">
+          <img class="user_image" :src="obj.avator" width="50" height="50" style="border-radius: 50%" alt="">
         </div>
         <div :class="['arrow',obj.username === showMyInfo.username?'arrow-me':null]"></div>
         <div>
@@ -52,7 +52,7 @@
       <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
       <Button type="primary" @click="youchat">模拟别人发送</Button>
     </div>-->
-    <!--<ws></ws>-->
+    <ws></ws>
   </div>
 </template>
 
@@ -101,7 +101,7 @@
               avator,
               message
             };
-            const url = "http://192.168.1.109:8082/chat/sendMessage";
+            const url = "http://192.168.19.250:8082/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {
@@ -147,7 +147,7 @@
   }
 
   .chat-header{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

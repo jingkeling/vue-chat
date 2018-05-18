@@ -26,7 +26,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.1.109:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.19.250:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {

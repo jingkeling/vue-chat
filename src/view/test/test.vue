@@ -1,10 +1,11 @@
 <template>
   <div class="test-container">
+    <!--video-->
     <video
       id="theVideo"
       class="video-player"
       @click="playOrPause()"
-      preload="auto" src="http://192.168.1.109:8082/girl.mp4"
+      preload="auto" src="http://192.168.19.250:8082/girl.mp4"
       poster="./videoindex.png"
       webkit-playsinline="true"
       playsinline="true"
@@ -126,7 +127,6 @@
     position: fixed;
     width: 100%;
     bottom: 20px;
-    background-color: red;
   }
 
 
