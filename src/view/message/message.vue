@@ -1,6 +1,7 @@
 <template>
   <div>
     <message-header></message-header>
+    <!--消息div-->
     <div class="message-index">
       <div v-for="obj in indexData">
         <div class="index-row van-hairline--bottom" @click="changePage(obj.page)" >
@@ -49,8 +50,7 @@
     top: 50px;
     left: 0;
     width: 100%;
-    height: 800px;
-    border-bottom: 1px solid #b2b2b2;
+    bottom: 50px;
     text-align: center;
     line-height: 40px;
   }

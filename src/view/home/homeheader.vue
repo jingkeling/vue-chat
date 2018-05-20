@@ -11,9 +11,15 @@
           </div>
       </div>
       <div class="home-header-more">
-        <i class="fa fa-area-chart"></i>
-        <i class="fa fa-battery-4"></i>
-        <i class="fa fa-search"></i>
+        <div class="home-header-ico1">
+          <i class="fa fa-area-chart"></i>
+        </div>
+        <div class="home-header-ico2">
+          <i class="fa fa-battery-4"></i>
+        </div>
+        <div class="home-header-ico3" @click="search">
+          <i class="fa fa-search"></i>
+        </div>
       </div>
       <!--左侧-->
       <transition name="slide-fade">
@@ -21,6 +27,10 @@
       </transition>
       <!--遮罩-->
       <div v-show="showzz" class="home-header-zz"></div>
+      <!--底部弹出-->
+      <van-popup class="home-popup" v-model="showSearch" :position="right1">
+        <div class="home-popup-content"></div>
+      </van-popup>
     </div>
 </template>
 
@@ -40,7 +50,9 @@
     data(){
       return{
         leftDetailShow: false,
-        showzz: false
+        showzz: false,
+        showSearch: false,
+        right1:'bottom'
       }
     },
     methods:{
@@ -49,6 +61,9 @@
         this.leftDetailShow = boolean;
         this.showzz = boolean;
       },
+      search() {
+        this.showSearch = true;
+      }
 
     }
   };
@@ -96,22 +111,19 @@
 
   .home-header-more{
     position: absolute;
-    right: 0;
-    top: 20px;
-    margin-top: 5px;
+    height: 70px;
+    width: 100px;
+    right: 5px;
+    top: 0;
+    text-align: center;
+    line-height: 70px;
   }
-  .fa-area-chart{
-    font-size: 15px;
-    margin: 5px 15px 5px 5px;
+  .home-header-more > div{
+    display: inline-block;
+    height: 100%;
+    width: 30px;
   }
-  .fa-battery-4{
-    font-size: 15px;
-    margin: 5px 15px 5px 5px;
-  }
-  .fa-search{
-    font-size: 15px;
-    margin: 5px 15px 5px 5px;
-  }
+
 
   /*左侧栏动画*/
   .slide-fade-enter-active {
@@ -134,6 +146,16 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.42);
+  }
+
+  .home-popup{
+    position: fixed;
+    width: 100%;
+    height: 95%;
+  }
+
+  .home-popup-content{
+
   }
 
 </style>

@@ -2,9 +2,10 @@
   <div>
     <home-header :homeInfo="homeInfo"></home-header>
     <van-tabs class="home-tabs" v-model="active" swipeable sticky>
-      <van-tab v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
+      <van-tab v-for="obj in tabsArr" :title="obj.title" :key="obj.id" @click="changeTab(obj.tabName)">
         内容 {{ obj.title }}
         <!--// TODO: 这里用子路由做，推荐那个用图片轮播-->
+        <router-view></router-view>
       </van-tab>
     </van-tabs>
   </div>
@@ -14,11 +15,10 @@
   import header from './homeheader'
 
   export default {
-        name: "message",
-      components:{
-        'home-header': header
-      },
-
+    name: "message",
+    components:{
+      'home-header': header
+    },
     data() {
       return {
         homeInfo: {
@@ -29,9 +29,14 @@
           zan: 100
         },
         active: 1,
-        tabsArr:[{id:'1', title:"直播"},{id:'2', title: "推荐"}, {id:'3', title: "追番"}]
+        tabsArr:[{id: '1', title: "直播",tabName: ""},{id:'2', title: "推荐", tabName: ""}, {id:'3', title: "追番", tabName: ""}]
       }
     },
+    methods:{
+      changeTab(tabName) {
+        this.$router.push({name: tabName});
+      }
+    }
 
     }
 </script>

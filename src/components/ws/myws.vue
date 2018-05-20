@@ -5,6 +5,8 @@
 <script>
   // TODO: 怎么保持ws一直连接
   import {mapActions, mapGetters} from 'vuex'
+  import {Toast} from 'vant';
+
 
   export default {
     data() {
@@ -26,7 +28,7 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.19.250:8082/websocket/1995");
+            this.ws = new WebSocket("ws://192.168.1.110:8082/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {
@@ -73,7 +75,7 @@
        * 把服务端的消息存进vuex
        */
       ...mapActions([
-        'getMessage'
+        'getMessage','connectWS','isOnline'
       ]),
       myAlert(){
         Toast.loading({
@@ -96,7 +98,7 @@
        * 从vuex中取出状态
        */
       ...mapGetters([
-        'showChat','showMyInfo','showIsConnect'
+        'showChat','showMyInfo','showIsConnect','showIsOnline'
       ])
     }
   }

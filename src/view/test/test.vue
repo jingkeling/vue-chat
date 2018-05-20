@@ -5,7 +5,7 @@
       id="theVideo"
       class="video-player"
       @click="playOrPause()"
-      preload="auto" src="http://192.168.19.250:8082/girl.mp4"
+      preload="auto" src="http://192.168.1.110:8082/girl.mp4"
       poster="./videoindex.png"
       webkit-playsinline="true"
       playsinline="true"

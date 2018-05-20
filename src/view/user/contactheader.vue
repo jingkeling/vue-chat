@@ -1,31 +1,32 @@
 <template>
-    <div class="message-header" @click="changePage('contact')">
-      <div class="contact-ico">
-        <van-icon name="contact" />
-      </div>
-      消息
-      <!--更多-->
-      <div class="message-more">
-        <i class="fa fa-ellipsis-v"></i>
-      </div>
+  <div class="contact-header" @click="">
+    <div class="addresslist">
+      <van-icon name="add-o" />
     </div>
+    联系人
+    <!--更多-->
+    <div class="contact-back" @click="changePage('message')">
+      <van-icon name="arrow" />
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-      name: "messageheader",
-      methods: {
-        changePage(msg) {
-          this.$router.push({name: msg});
-
-        }
+  export default {
+    methods: {
+      changePage(msg) {
+        this.$router.push({name: msg});
+      },
+      goBack() {
+        this.$router.go(-1);
       }
     }
+  }
 </script>
 
 <style scoped>
 
-  .message-header{
+  .contact-header{
     position: fixed;
     left: 0;
     right: 0;
@@ -39,7 +40,7 @@
 
   }
 
-  .contact-ico{
+  .addresslist{
     position: absolute;
     top: 0;
     left: 0;
@@ -50,7 +51,7 @@
     line-height: 55px;
   }
 
-  .message-more{
+  .contact-back{
     position: absolute;
     top: 0;
     right: 0;
@@ -58,7 +59,7 @@
     height: 100%;
     font-size: 17px;
     color: #ffffff;
-    line-height: 50px;
+    line-height: 55px;
     text-align: center;
   }
 

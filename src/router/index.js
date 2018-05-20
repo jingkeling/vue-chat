@@ -12,10 +12,7 @@ import chathub from '../view/lab/chathub';
 import video from '../view/video/video';
 import mine from '../view/mine/mine';
 import test from '../view/test/test';
-
-import {Toast} from 'vant';
-
-import store from '../store';
+import contact from '../view/user/contact'
 
 
 Vue.use(Router);
@@ -34,11 +31,17 @@ const router = new Router({
       name: 'index',
       component: index,
       children: [
-        {path: 'video', component: video, name: 'video'},
         {path: 'home', component: home, name: 'home'},
         {path: 'message', component: message, name: 'message'},
         {path: 'discovery', component: discovery, name: 'discovery'},
         {path: 'mine', component: mine, name: 'mine'},
+        {path: 'video', component: video, name: 'video'},
+        {
+          path: 'contact',
+          component: contact,
+          name: 'contact'
+        }
+
       ]
     },
     {
@@ -57,7 +60,8 @@ const router = new Router({
       path: '/test',
       component: test,
       name: 'test'
-    }
+    },
+
   ]
 });
 

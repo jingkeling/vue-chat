@@ -19,10 +19,10 @@
           @click="changeImage('user')"
           class="login-user-input"
           center
-          v-model="name"
+          v-model="username"
           placeholder="请输入用户名"
           icon="clear"
-          @click-icon="name = ''"
+          @click-icon="username = ''"
         >
         </van-field>
       </div>
@@ -55,14 +55,14 @@
 </template>
 
 <script>
-
+  import {Toast} from 'vant'
   import {mapActions} from 'vuex';
   import VanNode from "vant/packages/utils/node";
   export default {
     components: {VanNode},
     data() {
       return {
-        name: '',
+        username: '',
         password: "",
         bgimgurl: "user",
         passwordType: "password",
@@ -85,12 +85,13 @@
       },
       login() {
         let $this = this;
-        if (this.name == null || this.name === "") {
+        if (this.username == null || this.username === "") {
              return;
         }
         const formData = new FormData();
-        formData.append("username", this.name);
-        const url = "http://192.168.19.250:8082/user/login";
+        formData.append("username", this.username);
+        formData.append("password", this.password);
+        const url = "http://192.168.1.110:8082/user/login";
         let request = new Request(url, {
           method: 'POST',
           credentials: 'include',
@@ -99,16 +100,13 @@
         fetch(request).then(response => {
           return response.json();
         }).then(data => {
-
           //登录成功储存登录信息并跳转
-          $this.setCookie("username", this.name);
+          $this.setCookie("username", this.username);
           $this.setCookie("avator", data.avator);
           $this.setMyInfo({userInfo: data});
-
           $this.$router.push({name: 'index'});
         }).catch(e => {
-          console.log(e);
-          alert("不能登录")
+          Toast("登录失败: 账户或密码错误")
         });
 
       },

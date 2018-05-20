@@ -1,15 +1,7 @@
 <template>
   <div>
     <div class="chat-header">
-      <!--返回-->
-      <div class="chat-back" @click="goBack">
-        <van-icon name="arrow-left"/>
-      </div>
-      群聊
-      <!--更多-->
-      <div class="chat-more">
-        <i class="fa fa-address-book-o"></i>
-      </div>
+      <van-icon name="arrow" @click="goBack" />
     </div>
     <div class="chat-container">
       <!--一行-->
@@ -29,7 +21,7 @@
       <div v-for="(obj,key) in showChat" :class="['chatRow',obj.username === showMyInfo.username?'chatRow-me':null]">
         <!--用户头像-->
         <div>
-          <img class="user_image" :src="obj.avator" :onerror="errorSrc" width="50" height="50" style="border-radius: 50%" alt="">
+          <img class="user_image" :src="obj.avator" width="50" height="50" style="border-radius: 50%" alt="">
         </div>
         <div :class="['arrow',obj.username === showMyInfo.username?'arrow-me':null]"></div>
         <div>
@@ -72,8 +64,7 @@
         data(){
           return {
             message:'',
-            messageyou: '',
-            errorSrc: "this.src='https://i.loli.net/2018/05/20/5b015b314f012.jpg';" //错误图片
+            messageyou: ''
           }
         },
         computed: {
@@ -162,10 +153,6 @@
     width: 100%;
     height: 50px;
     background-color: #fa7198;
-    color: #ffffff;
-    line-height: 50px;
-    text-align: center;
-    font-size: 15px;
   }
 
   .chat-container {
@@ -173,7 +160,7 @@
     width: 100%;
     bottom: 50px;
     top: 50px;
-    background-color: #ededed;
+    background-color: #ffffff;
     overflow-y: auto;/*让它出现滚动条*/
     border-radius: 0;
 
@@ -189,7 +176,6 @@
   .chatRow-me {
     flex-direction: row-reverse;
   }
-
   /*聊天内容div*/
   .chatContent {
     background-color: #fff;
@@ -197,21 +183,18 @@
     max-width: 250px;
     min-height: 30px;
     border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.9);
-    /*background-color: rgba(137, 198, 40, 0.9);*/
-    box-shadow: 0 0 3px #b5b5b5;
-
+    background-color: rgba(137, 198, 40, 0.9);
   }
   /*
-  .chatContent-you::after {
-      content: '';
-      left: -100%;
-      position: relative;
-      border-width: 15px; !*尖的尺寸*!
-      border-style: solid;
-      border-color: transparent rgba(137, 198, 40, 0.7) transparent transparent ;!*给颜色谁三角形就在哪边*!
+          .chatContent-you::after {
+              content: '';
+              left: -100%;
+              position: relative;
+              border-width: 15px; !*尖的尺寸*!
+              border-style: solid;
+              border-color: transparent rgba(137, 198, 40, 0.7) transparent transparent ;!*给颜色谁三角形就在哪边*!
 
-  }*/
+          }*/
 
   .chatContent-me{
 
@@ -227,12 +210,11 @@
     border-style: solid;
     /*border-color: transparent rgba(137, 198, 40, 0.7) transparent transparent ;!*给颜色谁三角形就在哪边*!*/
     margin-top: 47px;
-    z-index: 1;
-    border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent ;/*给颜色谁三角形就在哪边*/
+    border-color: transparent rgba(137, 198, 40, 0.9) transparent transparent ;/*给颜色谁三角形就在哪边*/
+
   }
   .arrow-me {
-    z-index: 1;
-    border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);/*给颜色谁三角形就在哪边*/
+    border-color: transparent transparent transparent rgba(137, 198, 40, 0.9);/*给颜色谁三角形就在哪边*/
   }
 
   .chatName {
@@ -252,26 +234,15 @@
     bottom: 0;
   }
 
-  .chat-back{
+  .fa-chevron-left{
     position: absolute;
+    color: #ffffff;
     top: 0;
-    left: 0;
-    width: 40px;
     bottom: 0;
-    height: 100%;
-    color: #ffffff;
-    font-size: 17px;
-    text-align: center;
-    line-height: 55px;
-  }
-  .chat-more{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    text-align: center;
-    line-height: 50px;
-    color: #ffffff;
+    height: 25px;
+    margin: auto 0 auto 20px;
+    font-size: 23px;
+
   }
 
 </style>
