@@ -28,7 +28,8 @@
       doRun(){
         try {
           if ('WebSocket' in window) {
-            this.ws = new WebSocket("ws://192.168.1.110:8082/websocket/1995");
+            const uri = this.GLOBAL_MSG.env.SERVER_IP;
+            this.ws = new WebSocket("ws://"+uri+"/websocket/1995");
             console.log("正在使用websocket");
           }
         } catch (e) {

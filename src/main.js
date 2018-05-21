@@ -3,23 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import iView from 'iview';
+// import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import ws from './components/ws/index';
 import store from './store';
 
+//vantui
 import vant from 'vant';
 import 'vant/lib/vant-css/index.css';
-import 'font-awesome/css/font-awesome.css'
 
+import 'font-awesome/css/font-awesome.css'
+//全局变量
+import env from './components/config/env';
 
 Vue.use(vant);
 
 Vue.use(ws);
-Vue.use(iView);
-Vue.prototype.doConnect = function () {
-
-}
+// Vue.use(iView);
+Vue.prototype.GLOBAL_MSG = env;
 
 new Vue({
   el: '#app',

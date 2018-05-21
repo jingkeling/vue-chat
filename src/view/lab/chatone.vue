@@ -101,7 +101,7 @@
               avator,
               message
             };
-            const url = "http://192.168.1.110:8082/chat/sendMessage";
+            const url = this.GLOBAL_MSG.env.SERVER_URI + "/chat/sendMessage";
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let request = new Request(url, {
