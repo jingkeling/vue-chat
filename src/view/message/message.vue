@@ -30,8 +30,8 @@
     data() {
       return {
         indexData: [
-          { rowName: "群聊",rowTips: "畅所欲言吧", rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg", page: "chathub"},
-          { rowName: "机器人", rowTips: "自动重连待完善，刷新页面需重新登录", rowBgImage: "http://i4.bvimg.com/626277/b64fb0792f2fd0ab.jpg", page: "chathub"}
+          { rowName: "群聊",rowTips: "畅所欲言吧", rowBgImage: require("../../assets/image/animal/cat1.png"), page: "chathub"},
+          { rowName: "机器人", rowTips: "自动重连待完善，刷新页面需重新登录", rowBgImage: require("../../assets/image/animal/cat1.png"), page: "chathub"}
         ]
       }
     },

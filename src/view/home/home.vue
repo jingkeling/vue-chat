@@ -2,14 +2,16 @@
   <div>
     <home-header :homeInfo="homeInfo"></home-header>
     <van-tabs class="home-tabs" v-model="active" @click="changeTab" swipeable sticky>
-      <van-tab class="123" v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
-        <router-view></router-view>
+      <van-tab class="keling" v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
       </van-tab>
     </van-tabs>
+    <!--SIGN: 把路由放在这里，而不是放在van-tabs方便些(主要是放van-tab里组件样式不好写)-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+
   import header from './homeheader'
 
   export default {
@@ -27,10 +29,24 @@
           zan: 100
         },
         active: 1,
-        tabsArr:[{id: '1', title: "直播",tabName: "live"},{id:'2', title: "推荐", tabName: "recommend"}, {id:'3', title: "追番", tabName: "cartoon"}]
+        tabsArr:[{id: '1', title: "直播",tabName: "live"},{id:'2', title: "推荐", tabName: "recommend"}, {id:'3', title: "排行榜", tabName: "rank"}]
       }
     },
+    watch:{
+      //检测激活的标签
+      active (val, oldVal) {
+        let tabName = this.tabsArr[val]['tabName'];
+        this.$router.push({name: tabName});
+
+      }
+    },
+    mounted(){
+      let tabName = this.tabsArr[1]['tabName'];
+      this.$router.push({name: tabName});
+
+    },
     methods:{
+      /*切换页面*/
       changeTab(index, title) {
         let tabName = this.tabsArr[index]['tabName'];
         this.$router.push({name: tabName});
@@ -42,7 +58,7 @@
 
 <style scoped>
   .home-tabs{
-    position: absolute;
+    position: fixed;
     z-index: -1;
     width: 100%;
     top: 70px;

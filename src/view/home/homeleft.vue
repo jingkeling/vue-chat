@@ -66,9 +66,11 @@
 </script>
 
 <style scoped>
+
+
   .home-left-contain{
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 70%;
@@ -76,6 +78,8 @@
     background: rgba(35, 37, 41, 0.39);
 
   }
+
+  /*-----左侧栏头部-----*/
   .home-left-wrapper{
     position: relative;
     width: 100%;
@@ -92,6 +96,7 @@
   .home-left-description{
     color: rgba(255, 255, 255, 0.71);
   }
+
   .home-right{
     position: fixed;
     top: 0;
@@ -99,13 +104,18 @@
     height: 100%;
     width: 30%;
   }
+
+  /*---左侧栏下面---*/
   .home-left-content{
     position: absolute;
     width: 100%;
-    height: 700px;
+    background-color: #eeeeee;
+    top: 140px;
+    bottom: 50px;
+
   }
   van-panel{
-    border: 0;
+    /*border: 0;*/
   }
   /*登出*/
   .header-signout{

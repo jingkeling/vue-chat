@@ -7,7 +7,7 @@ import index from '../view/index';
 import home from '../view/home/home';
 import recommend from '../view/home/children/recommend';
 import live from '../view/home/children/live';
-import cartoon from '../view/home/children/cartoon';
+import rank from '../view/home/children/rank';
 import message from '../view/message/message';
 import discovery from '../view/discovery/discovery';
 import chathub from '../view/lab/chathub';
@@ -39,7 +39,7 @@ const router = new Router({
           children: [
             {path: 'recommend', component: recommend, name: 'recommend'},
             {path: 'live', component: live, name: 'live'},
-            {path: 'cartoon', component: cartoon, name: 'cartoon'}
+            {path: 'rank', component: rank, name: 'rank'}
           ]
         },
         {path: 'message', component: message, name: 'message'},
