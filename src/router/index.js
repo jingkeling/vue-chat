@@ -5,6 +5,9 @@ import login from '../view/login';
 
 import index from '../view/index';
 import home from '../view/home/home';
+import recommend from '../view/home/children/recommend';
+import live from '../view/home/children/live';
+import cartoon from '../view/home/children/cartoon';
 import message from '../view/message/message';
 import discovery from '../view/discovery/discovery';
 import chathub from '../view/lab/chathub';
@@ -31,7 +34,14 @@ const router = new Router({
       name: 'index',
       component: index,
       children: [
-        {path: 'home', component: home, name: 'home'},
+        {
+          path: 'home', component: home, name: 'home',
+          children: [
+            {path: 'recommend', component: recommend, name: 'recommend'},
+            {path: 'live', component: live, name: 'live'},
+            {path: 'cartoon', component: cartoon, name: 'cartoon'}
+          ]
+        },
         {path: 'message', component: message, name: 'message'},
         {path: 'discovery', component: discovery, name: 'discovery'},
         {path: 'mine', component: mine, name: 'mine'},
