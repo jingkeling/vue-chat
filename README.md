@@ -1,3 +1,3 @@
 # vue-chat
 
-> vue webapp
+> 个人仿哔哩哔哩webapp
