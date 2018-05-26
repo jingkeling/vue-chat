@@ -7,13 +7,13 @@
   /**
    * 服务器地址
    */
+  const SERVER_ROOT = "192.168.1.110:8080/wsserver";
+  const SERVER_URI = "http://" + SERVER_ROOT;
+  const WS_URI = "WS://" + SERVER_ROOT;
 
-  const SERVER_IP = "192.168.19.250:8082";
-  const SERVER_URI = "http://" + SERVER_IP;
   const env = {
-    SERVER_IP,
     SERVER_URI,
-
+    WS_URI
   };
 
   /*
