@@ -1,5 +1,5 @@
 <template>
-  <div class="index"">
+  <div class="index">
     <div class="login-header">
       登录
       <div class="login-forget">
@@ -8,7 +8,7 @@
     </div>
     <!--用户名栏-->
     <div class="login-img">
-      <img :src="'/static/img/login/login_eye_'+bgimgurl+'.jpg'" width="100%" height="100%">
+      <img :src="bgimgurl" width="100%" height="100%">
     </div>
     <div class="login-wrapper">
       <div class="login-row van-hairline--bottom" @click="changeImage('open')">
@@ -62,7 +62,7 @@
       return {
         username: '',
         password: "",
-        bgimgurl: "open",
+        bgimgname: "open",
         passwordType: "password",
         passwordIcoName: "password-not-view"
 
@@ -70,7 +70,9 @@
       }
     },
     computed: {
-
+      bgimgurl() {
+        return '../assets/login/login_eye_' + this.bgimgname + '.jpg';
+      }
 
     },
     mounted(){
@@ -79,7 +81,7 @@
     },
     methods: {
       changeImage(msg){
-        this.bgimgurl = msg;
+        this.bgimgname = msg;
       },
       login() {
         let $this = this;
