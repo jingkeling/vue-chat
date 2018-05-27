@@ -7,7 +7,7 @@
   /**
    * 服务器地址
    */
-  const SERVER_ROOT = "192.168.1.110:8080/wsserver";
+  const SERVER_ROOT = "47.100.191.20:8080/chathub";
   const SERVER_URI = "http://" + SERVER_ROOT;
   const WS_URI = "WS://" + SERVER_ROOT;
 

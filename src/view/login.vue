@@ -71,7 +71,7 @@
     },
     computed: {
       bgimgurl() {
-        return '../assets/login/login_eye_' + this.bgimgname + '.jpg';
+        return require('../assets/login/login_eye_' + this.bgimgname + '.jpg');
       }
 
     },
