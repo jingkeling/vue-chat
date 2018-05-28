@@ -7,7 +7,7 @@
   /**
    * 服务器地址
    */
-  const SERVER_ROOT = "keling.site:8080/chathub";
+  const SERVER_ROOT = "121.196.211.18:8080/chathub";
   const SERVER_URI = "http://" + SERVER_ROOT;
   const WS_URI = "WS://" + SERVER_ROOT;
 
