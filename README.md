@@ -5,18 +5,13 @@
 
 
 
-
 [![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](https://cn.vuejs.org/v2/guide/)
-
-
 
 
 
 ## 技术栈
 
 vue2 + vue-router + vux + websocket
-
-
 
 
 
@@ -30,11 +25,9 @@ vue2 + vue-router + vux + websocket
 
 ## 最终目标
 
-我的初步目标是所有数据都走后端服务，最终能有流畅的一条逻辑线。
-
 其实我也不知道要做成什么样。。。 Zz...(¦3ꇤ[▓▓]
 
-
+有什么好的建议吗    [![Gitter](https://badges.gitter.im/JoinChat.svg)](https://gitter.im/jingkeling/Lobby)
 
 
 
