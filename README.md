@@ -4,13 +4,13 @@
 
 
 
-#### 技术栈
+## 技术栈
 
 vue2 + vue-router + vux + websocket
 
 
 
-#### 说明
+## 说明
 
 后端用springboot搭建的websocket服务端。因为事件的原因，还有其他项目在尝试，只能抽出空余时间完善。
 
@@ -22,7 +22,7 @@ vue2 + vue-router + vux + websocket
 
 <img src="https://pic-1253206304.cos.ap-shanghai.myqcloud.com/bilbiliindex.png" width="200px">
 
-#### 项目截图
+## 项目截图
 
 
 
