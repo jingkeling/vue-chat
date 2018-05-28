@@ -26,9 +26,8 @@ vue2 + vue-router + vux + websocket
 
 
 
-<img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub1.png" width="300px" align="left">
+<img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub1.png" width="300px" style="position: absulote;left: 0;">
 
-<br/>
 
 <img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub2.png" width="300px" align="left">
 
