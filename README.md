@@ -6,7 +6,7 @@
 
 
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](https://cn.vuejs.org/v2/guide/)
 
 
 
@@ -32,7 +32,7 @@ vue2 + vue-router + vux + websocket
 
 我的初步目标是所有数据都走后端服务，最终能有流畅的一条逻辑线。
 
-其实我也不知道要做成什么样。。。 Zz...(¦3ꇤ[▓▓] 
+其实我也不知道要做成什么样。。。 Zz...(¦3ꇤ[▓▓]
 
 
 
