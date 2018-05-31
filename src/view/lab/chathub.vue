@@ -173,7 +173,7 @@
     width: 100%;
     bottom: 50px;
     top: 50px;
-    background-color: #ededed;
+    background-color: #f6f6f6;
     overflow-y: auto;/*让它出现滚动条*/
     border-radius: 0;
 

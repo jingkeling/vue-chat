@@ -105,7 +105,7 @@
           $this.setCookie("username", this.username);
           $this.setCookie("avator", data.avator);
           $this.setMyInfo({userInfo: data});
-          $this.$router.push({name: 'index'});
+          $this.$router.push({name: 'index'}); //跳到首页
         }).catch(e => {
           Toast("登录失败: 账户或密码错误")
         });

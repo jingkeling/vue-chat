@@ -3,7 +3,7 @@
     <transition name="slide-left">
       <router-view/>
     </transition>
-    <div class="pointapp"></div>
+    <!--<div class="pointapp"></div>-->
     <!--<div @parentconnect="wsconnecta"></div>-->
     <!--<ws></ws>-->
   </div>

@@ -1,6 +1,6 @@
 <template>
-    <div class="message-header" @click="changePage('contact')">
-      <div class="contact-ico">
+    <div class="message-header">
+      <div class="contact-ico" @click="changePage('contact')">
         <van-icon name="contact" />
       </div>
       消息

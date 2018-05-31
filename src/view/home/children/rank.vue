@@ -1,17 +1,17 @@
 <template>
-  <div class="recommend-container">
+  <div class="rank-container">
     <van-list
-      class="recommend-van-list"
+      class="rank-van-list"
       v-model="loading"
       :finished="finished"
       @load="onLoad"
     >
       <!--<van-cell v-for="item in list" :key="item" :title="item.title">
-        <div class="recommend-card">
-          <img src="../../../assets/image/chathub/girl1.jpeg" width="100%"  alt="">
+        <div class="rank-card">
+          <img src="../../../assets/image/chathub/girl1.jpg" width="100%"  alt="">
         </div>
       </van-cell>-->
-      <div v-for="(obj,index) in list" :key="index" class="recommend-card van-hairline--bottom">
+      <div v-for="(obj,index) in list" :key="index" class="rank-card van-hairline--bottom">
         <div ></div>
         <img :src='obj.imgUrl' height="100%">
       </div>
@@ -34,15 +34,15 @@
       onLoad() {
         setTimeout(() => {
 
-          this.list.push({title: '1、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '2、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '3、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '4、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
-          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpeg')});
+          this.list.push({title: '1、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '2、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '3、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '4、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
+          this.list.push({title: '5、烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl1.jpg')});
 
 
           this.loading = false;
@@ -57,7 +57,7 @@
 
 <style scoped>
 
-  .recommend-container{
+  .rank-container{
     z-index: -1;
     position: fixed;
     width: 100%;
@@ -71,7 +71,7 @@
 
 
 
-  .recommend-card{
+  .rank-card{
     height: 100px;
     width: 100%;
     margin-bottom: 5px;
