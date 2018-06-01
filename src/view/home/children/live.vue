@@ -1,35 +1,51 @@
 <template>
   <div class="live-container">
-    <van-list
-      class="live-van-list"
-      v-model="loading"
-      :finished="finished"
-      @load="onLoad"
-    >
-      <!--<van-cell v-for="item in list" :key="item" :title="item.title">
-        <div class="live-card">
-          <img src="../../../assets/image/chathub/girl1.jpg" width="100%"  alt="">
+
+    <van-search placeholder="搜索房间或主播" v-model="value" backgroud="#ffffff" style="margin: 4px 0;"/>
+
+
+
+    <!--标题-->
+    <div class="live-row-title">
+      <div style="position: absolute;display: inline-block; left: 0;padding: 0 10px;font-size: 15px;font-weight: 600">明星直播</div>
+      <div style="position: absolute;display: inline-block; right: 0;padding: 0 10px;color: #b3b3b3;">更多排行 ></div>
+    </div>
+    <!--明星直播-->
+    <div class="live-star-top">
+      <div v-for="(obj , index) in starArr" :key="index" class="live-star-block">
+        <div style="position: relative;width: 70px;height: 70px;">
+          <img :src="obj.avator" width="100%" style="border-radius: 50%;border: 2px solid #f25e43;">
         </div>
-      </van-cell>-->
-      <div v-for="(obj,index) in list" :key="index" class="live-card van-hairline--bottom">
-        <div class="live-card-img">
-          <img :src='obj.imgUrl' height="100%">
+        <div style="position: relative;width: 100%;height: 40px;text-align: center;margin: 0;" class="live-star-block">
+          <div class="van-ellipsis" style="font-size: 15px;font-weight: 500;margin-top:4px;">{{obj.nickname}}</div>
+          <div class="van-ellipsis" style="color: #b5b5b5;">{{numFormat(obj.star)}}</div>
         </div>
-        <div class="live-card-content">
-          <div class="van-ellipsis" style="font-size: 20px">{{obj.title}}</div>
-          <div class="van-ellipsis" style="color: #999;">{{obj.title}}</div>
-          <div style="position: absolute;bottom: 0px;">
-            <span style="color: #999;" class="fa fa-youtube-play"></span>
-            &nbsp;
-            <span style="color: #999;">{{numFormat(obj.play)}}</span>
-            &nbsp;&nbsp;&nbsp;
-            <span style="color: #999;" class="fa fa-drivers-license-o"></span>
-            &nbsp;
-            <span style="color: #999;">{{numFormat(obj.view)}}</span>
+      </div>
+    </div>
+    <!--标题-->
+    <div class="live-row-title">
+      <div style="position: relative;display: inline-block;margin-left: 12px;vertical-align: top">
+        <span class="fa fa-video-camera" style="color: #f8948b;font-size: 14px"></span>
+      </div>
+      <div style="position: relative;display: inline-block;;margin: 0 3px;font-size: 15px;font-weight: 600">推荐直播</div>
+      <div style="position: absolute;display: inline-block; right: 0;padding: 0 10px;color: #b3b3b3;">当前共有<span style="color: #f8948b;">10942</span>个直播 ></div>
+    </div>
+    <!--主内容-->
+    <div class="live-recommend">
+      <div v-for="(obj, index) in liveArr" class="live-block">
+        <div style="width: 100%;height: 120px;">
+          <img :src="obj.imageurl" width="100%" height="100%" style="border-top-left-radius: 6px;border-top-right-radius: 6px;">
+        </div>
+        <div class="live-block-title van-ellipsis" style="">{{obj.title}}</div>
+        <div class="live-block-categories van-ellipsis" style="">
+          <div style="display: inline-block">{{obj.categories}}</div>
+          <div style="display: inline-block;position: absolute;right: 20px;">
+            <span class="fa fa-ellipsis-v" style="font-size: 17px;color: #c1c2c4;"></span>
           </div>
         </div>
       </div>
-    </van-list>
+    </div>
+
   </div>
 </template>
 
@@ -37,83 +53,123 @@
   export default {
     data(){
       return {
-        loading: false,
-        finished: false,
-        list: []
+        value: "",
+        starArr:[
+          {avator: require("../../../assets/image/girl/girl.jpg"),nickname:"小天不是受", star: 557000},
+          {avator: require("../../../assets/image/girl/girl1.jpg"),nickname:"某幻君", star: 557000},
+          {avator: require("../../../assets/image/girl/girl2.jpg"),nickname:"A路人", star: 557000},
+          {avator: require("../../../assets/image/girl/girl3.jpg"),nickname:"瞬间爆炸型人格", star: 557000},
+          {avator: require("../../../assets/image/girl/girl4.jpg"),nickname:"神奇", star: 557000},
+          {avator: require("../../../assets/image/girl/girl5.jpg"),nickname:"神奇", star: 557000},
+          {avator: require("../../../assets/image/girl/girl6.jpg"),nickname:"神奇", star: 557000},
+          {avator: require("../../../assets/image/girl/girl7.jpg"),nickname:"神奇", star: 557000},
+        ],
+        liveArr: [
+          {imageurl: require("../../../assets/image/live/live7.jpg"),title:"小熊熊才不是小孩纸，才不会双马尾",categories: "小熊萝莉"},
+          {imageurl: require("../../../assets/image/live/live6.jpg"),title:"【滚】第五rua格",categories: "两仪滚"},
+          {imageurl: require("../../../assets/image/live/live8.jpg"),title:"女友视角❤❤❤",categories: "優しい七酱"},
+          {imageurl: require("../../../assets/image/live/live5.jpg"),title:"这里怎么有一只小兔几！",categories: "扎双马尾的丧尸"},
+          {imageurl: require("../../../assets/image/live/live9.jpg"),title:"ASMR哄睡，超困的小圆脸QWQ",categories: "浅野菌子"},
+          {imageurl: require("../../../assets/image/live/live2.jpg"),title:"面筋哥来啦！可带劲了",categories: "视频唱见"},
+
+        ],
 
 
-      }
+      };
     },
     methods: {
-      onLoad() {
-        setTimeout(() => {
-
-          this.list.push({title: '【初音未来】V家101 超人气偶像MIKU个人直拍视频',imgUrl: require('../../../assets/image/girl/girl1.jpg'),play: 165000, view: 840});
-          this.list.push({title: '【第五人格手书】',imgUrl: require('../../../assets/image/girl/girl2.jpg'),play: 372000, view: 958});
-          this.list.push({title: '【认真推荐】那些神展开的4月新番',imgUrl: require('../../../assets/image/girl/girl3.jpg'),play: 940000, view: 587});
-          this.list.push({title: '【C菌】法国顶级团队打造神作!【底特律: 变人】实况, 更新第11集',imgUrl: require('../../../assets/image/girl/girl4.jpg'),play: 75100, view: 115});
-          this.list.push({title: '【烤面筋】 面筋守护你！',imgUrl: require('../../../assets/image/girl/girl5.jpg'),play: 15800, view: 840});
-          this.list.push({title: '烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl6.jpg'),play: 200000, view: 961});
-          this.list.push({title: '烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl7.jpg'),play: 165000, view: 250});
-          this.list.push({title: '烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl8.jpg'),play: 750000, view: 134});
-          this.list.push({title: '烤面筋鬼畜',imgUrl: require('../../../assets/image/girl/girl9.jpg'),play: 1685000, view: 668});
-
-
-          this.loading = false;
-          if (this.list.length >= 5) {
-            this.finished = true;
-          }
-        }, 500);
-      },
       //格式化数字
       numFormat(num){
         if (num/10000 >= 1) {
           num = num / 1000 +"万";
         }
-        return num;
+        return num+"关注";
       }
+
     }
   }
 </script>
 
 <style scoped>
-
   .live-container{
-    z-index: -1;
     position: fixed;
-    width: 100%;
+    left: 0;
     top: 115px;
     bottom: 50px;
-    border-top: 1px solid #eeeeee;
-    background-color: #f8f8f8;
-    overflow-y: auto;
-
-  }
-
-
-
-  .live-card{
-    position: relative;
-    height: 100px;
     width: 100%;
-    margin-bottom: 5px;
+    z-index: -1;/*会把首页左侧侧拉挡住*/
+    overflow-y: auto;
+    background-color: #f6f6f6;
+
+  }
+
+  .live-row-title{
+
+    position: relative;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding: 4px 0;
+    margin: 6px 0;
+
+
+  }
+
+  .live-star-top{
+    position: relative;
+    width: 100%;
+    height: 120px;
+    white-space: nowrap;
+    overflow-x: auto;
+    /*overflow-y: hidden;*/
+
+  }
+  .live-star-block{
+
+    width: 75px;
+    height: 100%;
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .live-recommend{
+    position: relative;
+    width: 100%;
+    font-size: 0;
+
+  }
+
+  .live-block {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    /*border: 1px solid #eeeeee;*/
+    box-sizing: border-box;
+    padding: 5px 7px;
+
+  }
+  .live-block-title{
+    font-size: 13px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding: 1px 7px;
     background-color: #ffffff;
+    height: 28px;
+    line-height: 28px;
+  }
+  .live-block-categories{
+    height: 25px;
+    font-size: 11px;
+    box-sizing: border-box;
+    padding: 5px 7px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    color: #a5a5a5;
+
   }
 
-  .live-card-img{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin: 10px;
-  }
 
-  .live-card-content{
-    position: absolute;
-    left: 110px;
-    right: 20px;
-    height: 80px;
-    margin: 10px;
-  }
 
 
 </style>

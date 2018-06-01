@@ -20,6 +20,7 @@
     "vant": "^1.1.2",
     "vue": "^2.5.2",
     "vue-avatar": "^2.1.4",
+    "vue-js-grid": "^1.0.1",
     "vue-router": "^3.0.1",
     "vue-video": "^0.1.7",
     "weui": "^1.1.2",

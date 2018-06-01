@@ -36,7 +36,6 @@ const router = new Router({
         {path: 'message', component: message, name: 'message'},
         {path: 'discovery', component: discovery, name: 'discovery'},
         {path: 'mine', component: mine, name: 'mine'},
-        {path: 'video', component: video, name: 'video'},
         {
           path: 'contact',
           component: contact,
@@ -62,6 +61,7 @@ const router = new Router({
       component: test,
       name: 'test'
     },
+    {path: '/video', component: video, name: 'video'},
 
   ]
 });

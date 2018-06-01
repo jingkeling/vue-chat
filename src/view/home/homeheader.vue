@@ -112,8 +112,8 @@
   .home-header-more{
     position: absolute;
     height: 70px;
-    width: 100px;
-    right: 5px;
+    width: 130px;
+    right: 0px;
     top: 0;
     text-align: center;
     line-height: 70px;
@@ -121,7 +121,8 @@
   .home-header-more > div{
     display: inline-block;
     height: 100%;
-    width: 30px;
+    width: 35px;
+    font-size: 15px;
   }
 
 
