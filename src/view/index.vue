@@ -7,10 +7,10 @@
 
     <!--底部导航-->
     <van-tabbar v-model="active" v-show="show">
-      <van-tabbar-item icon="shop" @click="changePage('home')">主页</van-tabbar-item>
-      <van-tabbar-item icon="chat" @click="changePage('message')">消息</van-tabbar-item>
-      <van-tabbar-item icon="records" @click="changePage('test')" info="5">实验室</van-tabbar-item>
-      <van-tabbar-item icon="gold-coin" @click="changePage('mine')" dot>我的</van-tabbar-item>
+      <van-tabbar-item icon="home" @click="changePage('home')" dot>主页</van-tabbar-item>
+      <van-tabbar-item icon="chat" @click="changePage('message')" info="3">消息</van-tabbar-item>
+      <van-tabbar-item icon="shop" @click="changePage('test')">实验室</van-tabbar-item>
+      <van-tabbar-item icon="contact" @click="changePage('mine')">我的</van-tabbar-item>
     </van-tabbar>
 
   </div>

@@ -37,7 +37,7 @@
           zan: 100,
         },
         tabsArr:[{id: '1', title: "直播",tabName: "live"}, {id:'2', title: "推荐", tabName: "recommend"}, {id:'3', title: "排行榜", tabName: "rank"}],
-        active: -1,
+        active: 1,
         currTab: "recommend"
 
       }
@@ -52,11 +52,10 @@
       }
     },
     created() {
-      alert(0)
+
     },
     mounted(){
       // this.active = 0
-      alert(111)
 
 
     },

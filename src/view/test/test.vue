@@ -51,7 +51,7 @@
           let url = "http://cn-sxxa-dx-v-03.acgvideo.com/vg7/9/7d/6689771-1-hd.mp4?expires=1489820100&platform=pc&ssig=QUB9WZ97u8YujcGAlcTxNg&oi=1855518653&nfa=iCnd1wqqoAsXLyv+e2tfVA==&dynamic=1";
         },
         playOrPause() {
-          Toast("流量有限，暂不提供视频");
+          // Toast("流量有限，暂不提供视频");
           // this.video.paused ? this.video.play() : this.video.pause();
           if (this.video.paused) {
             this.video.play();

@@ -1,18 +1,24 @@
 <template>
   <div class="mine-header">
     <div class="mine-wrapper">
+      <!--头像-->
       <div class="mine-avator">
-        <img class="mine-img" width="64" height="64" :src="mineInfo.avator" alt="">
+        <img class="mine-img" width="64" height="64" :src="mineInfo.avator">
       </div>
       <div class="mine-content">
         <div class="mine-title">
           <div class="mine-name">{{mineInfo.nickname}}</div>
           <div v-if="mineInfo.sex == 1" class="fa fa-mars"></div>
-          <div v-else class="fa fa-venus" ></div>
+          <div v-else class="fa fa-venus"></div>
+          &nbsp;
+          <div style="display: inline-block;border: 1px solid #ffffff;border-radius: 3px;font-size: 7px;vertical-align: top;box-sizing: border-box;padding: 2px;">正式会员</div>
+
         </div>
         <div class=""></div>
         <div class="mine-description">
           <div class="mine-money">K币: {{mineInfo.money}}</div>
+          &nbsp;
+          &nbsp;
           <div class="mine-zan">赞: {{mineInfo.zan}}</div>
         </div>
       </div>
@@ -25,6 +31,21 @@
     <div class="mine-profile" @click="showProfile">
       <span>我的资料</span>
       <i class="fa fa-angle-right"></i>
+    </div>
+    <!--右上角图标-->
+    <div class="mine-header-ico">
+
+
+      <div>
+        <i class="fa fa-thumbs-o-up"></i>
+      </div>
+      <div>
+        <i class="fa fa-qrcode"></i>
+      </div>
+      <div>
+        <i class="fa fa-tags"></i>
+      </div>
+
     </div>
   </div>
 </template>
@@ -52,7 +73,9 @@
   .mine-header {
     position: fixed;
     width: 100%;
-    height: 130px;
+    height: 125px;
+    background-color: rgb(250, 113, 152);
+    box-sizing: border-box;
 
   }
   .mine-wrapper{
@@ -60,8 +83,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(250, 113, 152);
-    padding: 45px 12px 5px 24px ;
+    padding: 45px 12px 10px 15px ;
+
   }
 
   .mine-avator{
@@ -104,6 +127,27 @@
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+
+  .mine-header-ico {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 0;
+
+  }
+  .mine-header-ico > div {
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: top;
+    font-size: 18px;
+
   }
 
 
