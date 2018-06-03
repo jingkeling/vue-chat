@@ -76,6 +76,7 @@
     width: 100%;
     overflow-y: auto;
     z-index: -1;
+    background-color: #f6f6f6;
 
   }
   .recommend-swiper{

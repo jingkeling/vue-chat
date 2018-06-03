@@ -3,11 +3,12 @@
     <home-header :homeInfo="homeInfo"></home-header>
     <van-tabs class="home-tabs" v-model="active" @click="" swipeable sticky>
       <van-tab class="keling" v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
+        <component :is="currTab"></component>
       </van-tab>
     </van-tabs>
     <!--SIGN: 把路由放在这里，而不是放在van-tabs方便些(主要是放van-tab里组件样式不好写)-->
     <!--别用路由用动态组件-->
-    <component :is="currTab"></component>
+
 
   </div>
 </template>
