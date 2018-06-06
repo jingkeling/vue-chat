@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-header :homeInfo="homeInfo"></home-header>
-    <van-tabs class="home-tabs" v-model="active" @click="" swipeable sticky>
+    <van-tabs class="home-tabs" v-model="active" @click=""  sticky>
       <van-tab class="keling" v-for="obj in tabsArr" :title="obj.title" :key="obj.id">
         <component :is="currTab"></component>
       </van-tab>

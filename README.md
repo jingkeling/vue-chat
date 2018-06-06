@@ -45,12 +45,14 @@ vue2 + vue-router + vux + websocket
 
 
 
-<img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub1.png" width="300px">
+<img src="https://s1.ax1x.com/2018/06/06/C7q4aD.png" width="300px">
 
 
-<img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub2.png" width="300px">
+<img src="https://s1.ax1x.com/2018/06/06/C7qhVO.png" width="300px">
 
+<img src="https://s1.ax1x.com/2018/06/06/C7qRr6.png" width="300px">
 
+<img src="https://s1.ax1x.com/2018/06/06/C7qWqK.jpg" width="300px">
 
 <img src="https://github-1253206304.cos.ap-shanghai.myqcloud.com/chathub3.png" width="300px">
 
