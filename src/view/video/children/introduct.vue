@@ -212,14 +212,14 @@
     position: relative;
     width: 100%;
     height: 30px;
-    overflow-x: auto;
   }
     .introduct-tag{
       display: inline-block;
       height: 30px;
-      width: 45px;
+      width: 50px;
       text-align: center;
-      line-height: 35px;
+      line-height: 40px;
+      vertical-align: top;
     }
 
   .introduct-same-list{
