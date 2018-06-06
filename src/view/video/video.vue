@@ -1,8 +1,7 @@
 <template>
     <div class="video-container">
       <div class="video-header">
-        <img src="../../assets/image/recommend/recommend1.jpg" width="100%" height="100%" alt="">
-
+        <img src="../../assets/image/cover/cover1.jpg" width="100%" height="100%" alt="">
 
         <div style="position: absolute;left: 6px;top: 5px;width: 30px;text-align: center" @click="changePage">
           <i class="fa fa-angle-left" style="font-size: 30px;color: #ffffff;"></i>
@@ -44,7 +43,7 @@
       data(){
         return {
           active: 0,
-          tabArr: [{title:"详情",tabName: "introduct" }, {title: "评论", number: 22, tabName: "comment"}],
+          tabArr: [{title:"简介",tabName: "introduct" }, {title: "评论", number: 22, tabName: "comment"}],
 
         };
       },
@@ -94,6 +93,7 @@
     top: 45px;/*如果是0，就会占了切换的tab标签*/
     bottom: 0;
     /*background-color: #00c000;*/
+    overflow-y: auto;
   }
 
 

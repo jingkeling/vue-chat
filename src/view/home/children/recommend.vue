@@ -5,7 +5,7 @@
        <div class="recommend-swiper">
          <van-swipe :autoplay="3000">
            <van-swipe-item v-for="(image, index) in images" :key="index">
-             <img :src="image" width="100%" height="110px" style="border-radius: 8px"/>
+             <img :src="image" width="100%" height="130px" style="border-radius: 8px"/>
            </van-swipe-item>
 
          </van-swipe>
@@ -81,7 +81,7 @@
   }
   .recommend-swiper{
     position: relative;
-    height: 110px;
+    height: 130px;
     width: 100%;
     border-radius: 5px;
     margin-top: 5px;

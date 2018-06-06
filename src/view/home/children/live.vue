@@ -55,14 +55,14 @@
       return {
         value: "",
         starArr:[
-          {avator: require("../../../assets/image/girl/girl.jpg"),nickname:"小天不是受", star: 557000},
+          {avator: require("../../../assets/image/girl/girl.jpg"),nickname:"小天不是受", star: 124000},
           {avator: require("../../../assets/image/girl/girl1.jpg"),nickname:"某幻君", star: 557000},
-          {avator: require("../../../assets/image/girl/girl2.jpg"),nickname:"A路人", star: 557000},
-          {avator: require("../../../assets/image/girl/girl3.jpg"),nickname:"瞬间爆炸型人格", star: 557000},
+          {avator: require("../../../assets/image/girl/girl2.jpg"),nickname:"A路人", star: 638000},
+          {avator: require("../../../assets/image/girl/girl3.jpg"),nickname:"瞬间爆炸型人格", star: 257111},
           {avator: require("../../../assets/image/girl/girl4.jpg"),nickname:"神奇", star: 557000},
-          {avator: require("../../../assets/image/girl/girl5.jpg"),nickname:"神奇", star: 557000},
-          {avator: require("../../../assets/image/girl/girl6.jpg"),nickname:"神奇", star: 557000},
-          {avator: require("../../../assets/image/girl/girl7.jpg"),nickname:"神奇", star: 557000},
+          {avator: require("../../../assets/image/girl/girl5.jpg"),nickname:"神奇", star: 127000},
+          {avator: require("../../../assets/image/girl/girl6.jpg"),nickname:"神奇", star: 656000},
+          {avator: require("../../../assets/image/girl/girl7.jpg"),nickname:"神奇", star: 111000},
         ],
         liveArr: [
           {imageurl: require("../../../assets/image/live/live7.jpg"),title:"小熊熊才不是小孩纸，才不会双马尾",categories: "小熊萝莉"},
@@ -71,7 +71,6 @@
           {imageurl: require("../../../assets/image/live/live5.jpg"),title:"这里怎么有一只小兔几！",categories: "扎双马尾的丧尸"},
           {imageurl: require("../../../assets/image/live/live9.jpg"),title:"ASMR哄睡，超困的小圆脸QWQ",categories: "浅野菌子"},
           {imageurl: require("../../../assets/image/live/live2.jpg"),title:"面筋哥来啦！可带劲了",categories: "视频唱见"},
-
         ],
 
 
