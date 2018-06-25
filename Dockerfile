@@ -2,7 +2,7 @@
 FROM nginx
 MAINTAINER keling <841127052@qq.com>
 
-COPY ./dist/ /usr/share/nginx/html
+COPY dist/ /usr/share/nginx/html
 
 
 #FROM node:6.10.3-slim
