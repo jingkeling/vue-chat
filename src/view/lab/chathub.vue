@@ -60,7 +60,7 @@
       <i-input style="width:488px;" v-model="messageyou" placeholder="请输入..."></i-input>
       <Button type="primary" @click="youchat">模拟别人发送</Button>
     </div>-->
-    <ws></ws>
+    <ws ref="wscomp"></ws>
   </div>
 </template>
 
@@ -97,7 +97,6 @@
            * @param myInfo
            */
           sendMyChat(myInfo) {
-            let $this = this;
             let username = myInfo.username;
             // HERE: 没必要登录信息，前端刷新就没有，由后端管理
             /*if (username ==null || username ==="") {
@@ -110,26 +109,11 @@
               avator,
               message
             };
-            const url = this.GLOBAL_MSG.env.SERVER_URI + "/chat/sendMessage";
-            let headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            let request = new Request(url, {
-              headers,
-              method: 'POST',
-              body: JSON.stringify(chatInfo),
-              credentials: 'include'
-            });
-            fetch(request).then(function (res) {
-              return res.text();
-            }).then(function (data) {
-              console.log(data);
+            this.$refs.wscomp.doSend(chatInfo);
+            this.message = "";
 
-            }).catch(function (e) {
-              alert("sendMessage请求catch到了异常: 断网");
-              $this.$router.push({name: "login"});
-              console.log(e);
-            });
-            this.message = '';
+
+
           },
           /**
            * 从cookie获取登录信息

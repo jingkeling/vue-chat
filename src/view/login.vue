@@ -43,7 +43,7 @@
         </van-field>
       </div>
       <div class="login-buttom">
-        <div class="login-register">注册</div>
+        <div class="login-register" @click="register">注册</div>
         <div class="login-loginin" @click="login">登录</div>
       </div>
 
@@ -71,7 +71,7 @@
     },
     computed: {
       bgimgurl() {
-        return require('../assets/login/login_eye_' + this.bgimgname + '.jpg');
+        return "https://bilibili-1253206304.cos.ap-shanghai.myqcloud.com/login_eye_" + this.bgimgname + ".jpg";
       }
 
     },
@@ -111,6 +111,11 @@
         });
 
       },
+
+      register() {
+        Toast("随意输入账户密码，登录自动注册")
+      },
+
       ...mapActions([
         'setMyInfo', 'connectWS'
       ]),
